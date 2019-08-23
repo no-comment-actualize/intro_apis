@@ -33,7 +33,8 @@ while true
   response = HTTP.get("https://api.wordnik.com/v4/word.json/#{input_word}/audio?useCanonical=false&limit=50&api_key=b05bbefa71250039e60030a86260994d095206c2efdc555ad").parse
 
   audio_file = response[0]["fileUrl"]
-  `open #{audio_file}`
+  # alternate syntax to open file in browser from ruby (mac specific)
+  system("open", audio_file)
 
   puts "Enter q to quit, press any other key to continue"
   input_option = gets.chomp
